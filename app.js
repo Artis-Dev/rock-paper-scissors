@@ -33,3 +33,49 @@ function playRound(pcSelection, npcSelection) {
   }
   return result;
 }
+
+function game() {
+  let rounds = 5;
+  let roundResult;
+  let finalResult;
+  let finalText;
+  let winScore = 0;
+  let looseScore = 0;
+  let tieScore = 0;
+
+
+  for(let i = 1; i <= rounds; i++) {
+    roundResult = playRound(pcPlay(), npcPlay());
+
+    if(roundResult === 'win') {
+      winScore++;
+      console.log('You win a round :)');
+    } else if(roundResult === 'loose') {
+      looseScore++;
+      console.log('You loose a round :(');
+    } else if(roundResult === 'tie') {
+      tieScore++;
+      console.log('Tie :o');
+    }
+  }
+
+  if (winScore > looseScore) {
+    finalResult = 'YOU WIN!';
+  } else if (winScore < looseScore) {
+    finalResult = 'YOU LOOSE';
+  } else {
+    finalResult = 'TIE';
+  }
+
+  finalText = `FINAL SCORE
+-----------
+Wins: ${winScore}
+Looses: ${looseScore}
+Ties: ${tieScore}
+${finalResult}`
+
+  return console.log(finalText);
+}
+
+console.log (`Welcome to Rock Paper Scissors game
+To start type: game();`)
