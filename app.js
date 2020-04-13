@@ -49,7 +49,7 @@ function game() {
 
     if(roundResult === 'win') {
       winScore++;
-      console.log('You win a round :)');
+      console.log('You won a round :)');
     } else if(roundResult === 'loose') {
       looseScore++;
       console.log('You loose a round :(');
@@ -60,7 +60,7 @@ function game() {
   }
 
   if (winScore > looseScore) {
-    finalResult = 'YOU WIN!';
+    finalResult = 'YOU WON!';
   } else if (winScore < looseScore) {
     finalResult = 'YOU LOOSE';
   } else {

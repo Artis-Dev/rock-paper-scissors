@@ -1,3 +1,50 @@
 body {
   background-color: cadetblue;
 }
+
+.main-container {
+  width: 1240px;
+  margin: 0 auto;
+}
+
+.heading {
+  text-align: center;
+}
+
+.arena {
+  display: flex;
+  justify-content: space-around;
+}
+
+.title {
+  font-size: 24px;
+  text-align: center;
+}
+
+.choose {
+  font-size: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.chooses {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.chooses a {
+  color: white;
+  transition: all .2s;
+}
+
+.chooses a:hover {
+  color: indianred;
+  transition: all .2s;
+}
+
+.npc a {
+  color: indianred;
+}

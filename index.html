@@ -6,11 +6,37 @@
   <title>Rock Paper Scissors</title>
   <link rel="stylesheet" href="css/modern-normalize.css">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="https://kit.fontawesome.com/d6d31e90c1.js" crossorigin="anonymous"></script>
+  </head>
 </head>
 <body>
 
-  <p>Open console to play a game</p>
+  <main class="main-container">
+    <h1 class="heading">Open console to play a game</h1>
 
+    <div class="arena">
+
+      <div class="choose">
+        <p class="title">YOUR MOVE</p>
+        <div class="chooses">
+          <a href="#"><i class="fas fa-hand-rock"></i></a>
+          <a href="#"><i class="fas fa-hand-paper"></i></a>
+          <a href="#"><i class="fas fa-hand-peace"></i></a>
+        </div>
+      </div>
+
+      <div class="results">
+        <h2 class="heading">RESULTS</h2>
+      </div>
+
+      <div class="choose">
+        <p class="title">OPONENT MOVE</p>
+        <div class="chooses npc">
+          <a href="#"><i class="fas fa-hand-paper"></i></a>
+        </div>
+      </div>
+    </div>
+  </main>
 
 
   <script src="app.js"></script>
