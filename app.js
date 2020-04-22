@@ -1,11 +1,7 @@
 function npcPlay() {
   const moves = ['rock', 'paper', 'scissors'];
 
-  function randomMove() {
-    return moves[Math.floor(Math.random() * moves.length)];
-  }
-
-  return randomMove();
+  return moves[Math.floor(Math.random() * moves.length)];
 }
 
 function pcPlay() {

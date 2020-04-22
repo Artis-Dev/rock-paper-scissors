@@ -1,50 +1,54 @@
-body {
-  background-color: cadetblue;
-}
+/*  COLOR PALETTE:
+    RED: #ef476f
+    YELLOW: #ffd166
+    GREEN: #06d6a0
+    BLUE: #118ab2
+    DARK BLUE: #073b4c  */
 
-.main-container {
-  width: 1240px;
-  margin: 0 auto;
+body {
+  background-color: #073b4c;
 }
 
 .heading {
   text-align: center;
+  color: #eee;
 }
 
-.arena {
+.main {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: baseline;
+  margin-top: 100px;
 }
 
-.title {
-  font-size: 24px;
+.player {
+  width: 500px;
   text-align: center;
 }
 
-.choose {
-  font-size: 100px;
-  display: flex;
-  flex-direction: column;
-  width: 250px;
+.info{
+  width: 310px;
+  margin: 0 25px;
 }
 
-.chooses {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.oponent {
+  width: 500px;
+  text-align: center;
 }
 
-.chooses a {
-  color: white;
-  transition: all .2s;
+.pc-choice {
+  font-size: 120px;
+  color: #118ab2;
 }
 
-.chooses a:hover {
-  color: indianred;
-  transition: all .2s;
+.npc-choice {
+  font-size: 120px;
+  color: #ffd166;
 }
 
-.npc a {
-  color: indianred;
+.round-result {
+  font-size: 20px;
+  font-weight: 600;
+  color: #06d6a0;
+  text-align: center;
 }
