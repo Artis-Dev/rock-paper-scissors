@@ -1,4 +1,9 @@
-const startGame = document.querySelector('.start');
+const newGame = document.querySelector('.start');
+
+let roundCounter = 0;
+let winCounter = 0;
+let tieCounter = 0;
+let looseCounter = 0;
 
 function playRound(pcSelection, npcSelection) {
   let result;
@@ -12,21 +17,17 @@ function playRound(pcSelection, npcSelection) {
     case pcSelection === 'scissors' && npcSelection === 'rock':
       result = 'loose';
       break;
-    case pcSelection === 'rock' && npcSelection === 'scissors':
-    case pcSelection === 'paper' && npcSelection === 'rock':
-    case pcSelection === 'scissors' && npcSelection === 'paper':
+    default:
       result = 'win';
       break;
-    default:
-      break;
   }
-  console.log(result);
-  return result;
+  return [result, pcSelection, npcSelection];
 }
 
-function npcPlay() {
+function oponent() {
   const moves = ['rock', 'paper', 'scissors'];
   const npcMove = moves[Math.floor(Math.random() * moves.length)];
+
   const npcIcon = document.querySelector('.npc-choice');
 
   if (npcMove === 'rock') {
@@ -39,73 +40,85 @@ function npcPlay() {
     npcIcon.classList.remove('fa-hand-rock', 'fa-hand-paper');
     npcIcon.classList.add('fa-hand-peace');
   }
+
   return npcMove;
 }
 
-function pcPlay() {
+function round(pcMove) {
+  let roundInfo = [];
+
+  const roundResult = document.querySelector('.round-result');
+  const roundCount = document.querySelector('.round-count');
+  const winScore = document.querySelector('.wins');
+  const tieScore = document.querySelector('.ties');
+  const looseScore = document.querySelector('.looses');
+
+  roundInfo = playRound(pcMove, oponent());
+  roundCounter += 1;
+  roundCount.innerHTML = `Round: ${roundCounter}`;
+  if (roundInfo[0] === 'win') {
+    roundResult.classList.add('win');
+    roundResult.classList.remove('loose', 'tie');
+    roundResult.innerHTML = `${roundInfo[1]} wins against ${roundInfo[2]}`;
+    winCounter += 1;
+  } else if (roundInfo[0] === 'loose') {
+    roundResult.classList.add('loose');
+    roundResult.classList.remove('win', 'tie');
+    roundResult.innerHTML = `${roundInfo[1]} looses against ${roundInfo[2]}`;
+    looseCounter += 1;
+  } else if (roundInfo[0] === 'tie') {
+    roundResult.classList.add('tie');
+    roundResult.classList.remove('win', 'loose');
+    roundResult.innerHTML = 'TIE';
+    tieCounter += 1;
+  }
+  winScore.innerHTML = `Wins: ${winCounter}`;
+  tieScore.innerHTML = `Ties: ${tieCounter}`;
+  looseScore.innerHTML = `Looses: ${looseCounter}`;
+}
+
+function startGame() {
   const selections = document.querySelectorAll('.selection');
 
   selections.forEach((selection) => {
     selection.addEventListener('click', () => {
       if (selection.classList.contains('rock')) {
-        console.log('ROCK');
-        return playRound('rock', npcPlay());
-      } if (selection.classList.contains('paper')) {
-        console.log('PAPER');
-        return playRound('paper', npcPlay());
+        round('rock');
+      } else if (selection.classList.contains('paper')) {
+        round('paper');
+      } else {
+        round('scissors');
       }
-      console.log('SCISSORS');
-      return playRound('scissors', npcPlay());
     });
   });
 }
 
-function start() {
-  const rounds = 5;
-  let finalResult;
-  let finalText;
-  let winScore = 0;
-  let looseScore = 0;
-  let tieScore = 0;
-
+function reset() {
   const roundResult = document.querySelector('.round-result');
+  const roundCount = document.querySelector('.round-count');
+  const winScore = document.querySelector('.wins');
+  const tieScore = document.querySelector('.ties');
+  const looseScore = document.querySelector('.looses');
   const npcIcon = document.querySelector('.npc-choice');
+
+  roundCounter = 0;
+  winCounter = 0;
+  tieCounter = 0;
+  looseCounter = 0;
 
   npcIcon.classList.remove('fa-hand-rock', 'fa-hand-paper', 'fa-hand-peace');
   npcIcon.classList.add('fa-question-circle');
 
+  roundResult.classList.remove('win', 'tie', 'loose');
   roundResult.innerHTML = 'Choose your move';
-
-  // for(let i = 1; i <= rounds; i++) {
-  if (roundResult === 'win') {
-    winScore += 1;
-  } else if (roundResult === 'loose') {
-    looseScore += 1;
-  } else if (roundResult === 'tie') {
-    tieScore += 1;
-  }
-  // }
-
-  if (winScore > looseScore) {
-    finalResult = 'YOU WON!';
-  } else if (winScore < looseScore) {
-    finalResult = 'YOU LOOSE';
-  } else {
-    finalResult = 'TIE';
-  }
-
-  //   finalText = `FINAL SCORE
-  // -----------
-  // Wins: ${winScore}
-  // Looses: ${looseScore}
-  // Ties: ${tieScore}
-  // {finalResult}`
-
-  return console.log('NEW GAME');
+  roundCount.innerHTML = 'Round: 0';
+  winScore.innerHTML = 'Wins: 0';
+  tieScore.innerHTML = 'Ties: 0';
+  looseScore.innerHTML = 'Looses: 0';
 }
 
-pcPlay();
+startGame();
 
-startGame.addEventListener('click', () => {
-  start();
+newGame.addEventListener('click', () => {
+  reset();
 });

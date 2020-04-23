@@ -7,6 +7,7 @@
 
 body {
   background-color: #073b4c;
+  color: #eee;
 }
 
 .heading {
@@ -59,4 +60,16 @@ body {
 .selection {
   font-size: 120px;
   color: #118ab2;
+}
+
+.win {
+  color: #06d6a0;
+}
+
+.tie {
+  color: #ffd166;
+}
+
+.loose {
+  color: #ef476f;
 }
