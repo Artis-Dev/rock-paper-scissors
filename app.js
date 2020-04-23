@@ -1,18 +1,9 @@
-function npcPlay() {
-  const moves = ['rock', 'paper', 'scissors'];
-
-  return moves[Math.floor(Math.random() * moves.length)];
-}
-
-function pcPlay() {
-  let pcMove = prompt('Your move (Rock, Paper or Scissors):');
-  return pcMove.toLowerCase();
-}
+const startGame = document.querySelector('.start');
 
 function playRound(pcSelection, npcSelection) {
   let result;
 
-  switch(true) {
+  switch (true) {
     case pcSelection === npcSelection:
       result = 'tie';
       break;
@@ -26,34 +17,74 @@ function playRound(pcSelection, npcSelection) {
     case pcSelection === 'scissors' && npcSelection === 'paper':
       result = 'win';
       break;
+    default:
+      break;
   }
+  console.log(result);
   return result;
 }
 
-function game() {
-  let rounds = 5;
-  let roundResult;
+function npcPlay() {
+  const moves = ['rock', 'paper', 'scissors'];
+  const npcMove = moves[Math.floor(Math.random() * moves.length)];
+  const npcIcon = document.querySelector('.npc-choice');
+
+  if (npcMove === 'rock') {
+    npcIcon.classList.remove('fa-hand-paper', 'fa-hand-peace');
+    npcIcon.classList.add('fa-hand-rock');
+  } else if (npcMove === 'paper') {
+    npcIcon.classList.remove('fa-hand-rock', 'fa-hand-peace');
+    npcIcon.classList.add('fa-hand-paper');
+  } else {
+    npcIcon.classList.remove('fa-hand-rock', 'fa-hand-paper');
+    npcIcon.classList.add('fa-hand-peace');
+  }
+  return npcMove;
+}
+
+function pcPlay() {
+  const selections = document.querySelectorAll('.selection');
+
+  selections.forEach((selection) => {
+    selection.addEventListener('click', () => {
+      if (selection.classList.contains('rock')) {
+        console.log('ROCK');
+        return playRound('rock', npcPlay());
+      } if (selection.classList.contains('paper')) {
+        console.log('PAPER');
+        return playRound('paper', npcPlay());
+      }
+      console.log('SCISSORS');
+      return playRound('scissors', npcPlay());
+    });
+  });
+}
+
+function start() {
+  const rounds = 5;
   let finalResult;
   let finalText;
   let winScore = 0;
   let looseScore = 0;
   let tieScore = 0;
 
+  const roundResult = document.querySelector('.round-result');
+  const npcIcon = document.querySelector('.npc-choice');
 
-  for(let i = 1; i <= rounds; i++) {
-    roundResult = playRound(pcPlay(), npcPlay());
+  npcIcon.classList.remove('fa-hand-rock', 'fa-hand-paper', 'fa-hand-peace');
+  npcIcon.classList.add('fa-question-circle');
 
-    if(roundResult === 'win') {
-      winScore++;
-      console.log('You won a round :)');
-    } else if(roundResult === 'loose') {
-      looseScore++;
-      console.log('You loose a round :(');
-    } else if(roundResult === 'tie') {
-      tieScore++;
-      console.log('Tie :o');
-    }
+  roundResult.innerHTML = 'Choose your move';
+
+  // for(let i = 1; i <= rounds; i++) {
+  if (roundResult === 'win') {
+    winScore += 1;
+  } else if (roundResult === 'loose') {
+    looseScore += 1;
+  } else if (roundResult === 'tie') {
+    tieScore += 1;
   }
+  // }
 
   if (winScore > looseScore) {
     finalResult = 'YOU WON!';
@@ -63,15 +94,18 @@ function game() {
     finalResult = 'TIE';
   }
 
-  finalText = `FINAL SCORE
------------
-Wins: ${winScore}
-Looses: ${looseScore}
-Ties: ${tieScore}
-${finalResult}`
+  //   finalText = `FINAL SCORE
+  // -----------
+  // Wins: ${winScore}
+  // Looses: ${looseScore}
+  // Ties: ${tieScore}
+  // {finalResult}`
 
-  return console.log(finalText);
+  return console.log('NEW GAME');
 }
 
-console.log (`Welcome to Rock Paper Scissors game
-To start type: game();`)
+pcPlay();
+
+startGame.addEventListener('click', () => {
+  start();
+});
