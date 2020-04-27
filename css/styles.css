@@ -41,12 +41,14 @@ body {
 .npc-choice {
   font-size: 120px;
   color: #ffd166;
+  transition: all 1s;
 }
 
 .round-result {
   font-size: 20px;
   font-weight: 600;
   color: #06d6a0;
+  text-transform: lowercase;
 }
 
 .start {
@@ -72,4 +74,21 @@ body {
 
 .loose {
   color: #ef476f;
+}
+
+.results {
+  display: flex;
+  justify-content: space-around;
+  text-align: left;
+}
+
+.end-game {
+  pointer-events: none;
+  color: #9a9a9a;
+}
+
+.final-result {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
