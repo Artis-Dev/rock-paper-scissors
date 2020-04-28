@@ -3,13 +3,13 @@ const finalResult = document.querySelector('.final-result');
 const roundResult = document.querySelector('.round-result');
 const statBoxes = document.querySelectorAll('.stat');
 const roundCount = document.querySelector('.round-count');
-const tieScore = document.querySelector('.ties');
+const drawScore = document.querySelector('.draws');
 const winScore = document.querySelector('.wins');
 const looseScore = document.querySelector('.looses');
 const newGame = document.querySelector('.start');
 
 let roundCounter = 0;
-let tieCounter = 0;
+let drawCounter = 0;
 let winCounter = 0;
 let looseCounter = 0;
 
@@ -18,7 +18,7 @@ function checkWinner(pcSelection, npcSelection) {
 
   switch (true) {
     case pcSelection === npcSelection:
-      result = 'tie';
+      result = 'draw';
       break;
     case pcSelection === 'rock' && npcSelection === 'paper':
     case pcSelection === 'paper' && npcSelection === 'scissors':
@@ -87,7 +87,7 @@ function playRound(pcMove) {
 
   if (roundInfo[0] === 'win') {
     roundResult.classList.add('win-bg');
-    roundResult.classList.remove('loose-bg', 'tie-bg');
+    roundResult.classList.remove('loose-bg', 'draw-bg');
     roundResult.innerHTML = `${roundInfo[1]} beats ${roundInfo[2]}`;
     pcChoice.classList.remove('loose');
     npcChoice.classList.remove('win');
@@ -96,24 +96,24 @@ function playRound(pcMove) {
     winCounter += 1;
   } else if (roundInfo[0] === 'loose') {
     roundResult.classList.add('loose-bg');
-    roundResult.classList.remove('win-bg', 'tie-bg');
+    roundResult.classList.remove('win-bg', 'draw-bg');
     roundResult.innerHTML = `${roundInfo[2]} beats ${roundInfo[1]}`;
     pcChoice.classList.remove('win');
     npcChoice.classList.remove('loose');
     pcChoice.classList.add('loose');
     npcChoice.classList.add('win');
     looseCounter += 1;
-  } else if (roundInfo[0] === 'tie') {
-    roundResult.classList.add('tie-bg');
+  } else if (roundInfo[0] === 'draw') {
+    roundResult.classList.add('draw-bg');
     roundResult.classList.remove('win-bg', 'loose-bg');
-    roundResult.innerHTML = 'Tie';
+    roundResult.innerHTML = 'Draw';
     pcChoice.classList.remove('win', 'loose');
     npcChoice.classList.remove('win', 'loose');
-    tieCounter += 1;
+    drawCounter += 1;
   }
 
   roundCount.innerHTML = roundCounter;
-  tieScore.innerHTML = tieCounter;
+  drawScore.innerHTML = drawCounter;
   winScore.innerHTML = winCounter;
   looseScore.innerHTML = looseCounter;
 
@@ -149,7 +149,7 @@ function reset() {
 
   roundCounter = 0;
   winCounter = 0;
-  tieCounter = 0;
+  drawCounter = 0;
   looseCounter = 0;
 
   selections.forEach((selection) => {
@@ -168,10 +168,10 @@ function reset() {
   pcChoice.classList.remove('win', 'loose');
   finalResult.classList.remove('loose', 'win');
   finalResult.innerHTML = 'Good luck';
-  roundResult.classList.remove('win', 'tie', 'loose');
+  roundResult.classList.remove('win', 'draw', 'loose');
   roundResult.innerHTML = '';
   roundCount.innerHTML = '0';
-  tieScore.innerHTML = '0';
+  drawScore.innerHTML = '0';
   winScore.innerHTML = '0';
   looseScore.innerHTML = '0';
   newGame.style.display = 'none';
