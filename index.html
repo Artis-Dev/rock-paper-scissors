@@ -6,37 +6,55 @@
   <title>Rock Paper Scissors</title>
   <link rel="stylesheet" href="css/modern-normalize.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/d6d31e90c1.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-  <header>
-    <h1 class="heading">Rock Paper Scissors</h1>
+  <header class="header">
+    <h1 class="heading">
+      <span class="win">Rock</span> <span class="tie">Paper</span> <span class="loose">Scissors</span>
+    </h1>
   </header>
 
   <main class="main">
     <div class="player">
       <h2 class="heading">Player</h2>
-      <div>
-        <a class="selection rock" href="#"><i class="fas fa-hand-rock fa-fw rotate-45"></i></a>
-        <a class="selection paper" href="#"><i class="fas fa-hand-paper fa-fw rotate-45"></i></a>
-        <a class="selection scissors" href="#"><i class="fas fa-hand-peace fa-fw rotate-45"></i></a>
-      </div>
+      <i class="fas fa-question-circle pc-choice"></i>
     </div>
 
     <div class="info">
-      <h2 class="heading">Info</h2>
-      <p class="final-result"></p>
-      <p class="round-result">Choose your move</p>
+      <div class="result-box">
+        <h2 class="heading final-result">Good luck</h2>
+        <span class="round-result"></span>
+      </div>
       <div class="stats">
-        <div>
-          <p><i class="fas fa-tally"></i> Rounds: <span class="round-count">0</span></p>
-          <p><i class="fas fa-trophy-alt"></i> Wins: <span class="wins">0</span></p>
+        <div class="stats-col-1">
+          <div class="stat">
+            <span class="round-count">0</span>
+            <p><i class="fas fa-tally"></i> Rounds</p>
+          </div>
+          <div class="stat">
+            <span class="wins">0</span>
+            <p><i class="fas fa-trophy-alt"></i> Wins</p>
+          </div>
         </div>
         <div>
-          <p><i class="fas fa-handshake"></i> Ties: <span class="ties">0</span></p>
-          <p><i class="fas fa-sad-cry"></i> Defeats: <span class="looses">0</span></p>
+          <div class="stat">
+            <span class="ties">0</span>
+            <p><i class="fas fa-handshake"></i> Ties</p>
+          </div>
+          <div class="stat">
+            <span class="looses">0</span>
+            <p><i class="fas fa-sad-cry"></i> Defeats</p>
+          </div>
         </div>
+      </div>
+      <h2 class="heading">Choose your move</h2>
+      <div class="select">
+        <a class="selection rock" href="#"><i class="fas fa-hand-rock fa-fw"></i></a>
+        <a class="selection paper" href="#"><i class="fas fa-hand-paper fa-fw"></i></a>
+        <a class="selection scissors" href="#"><i class="fas fa-hand-peace fa-fw"></i></a>
       </div>
       <button class="start">New Game</button>
     </div>

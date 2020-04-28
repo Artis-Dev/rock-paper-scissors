@@ -6,12 +6,24 @@
     DARK BLUE: #073b4c
     ---
     LIGHT GREY: #eee
-    GREY: #9a9a9a
-    WHITE: #fff  */
+    GREY: #9a9a9a  */
 
 body {
   background-color: #073b4c;
   color: #eee;
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+.header {
+  margin-top: 50px;
 }
 
 /* Main */
@@ -20,18 +32,76 @@ body {
   display: flex;
   justify-content: center;
   align-items: baseline;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 /* Player box */
 
 .player {
-  width: 460px;
+  width: 350px;
   text-align: center;
 }
 
+/* Info box */
+
+.info {
+  width: 500px;
+  margin: 0 25px;
+  text-align: center;
+}
+
+.result-box {
+  min-height: 90px;
+}
+
+.final-result {
+  transition: all 0.3s;
+}
+
+.round-result {
+  display: none;
+  text-transform: lowercase;
+  background-color: #ffd166;
+  padding: 7px;
+  border-radius: 6px;
+  color: #073b4c;
+  transition: all 0.3s;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: left;
+}
+
+.stats-col-1 {
+  text-align: right;
+}
+
+.stat {
+  width: 95px;
+  margin-bottom: 15px;
+  background-color: #ffd166;
+  padding: 7px;
+  border-radius: 6px;
+  color: #073b4c;
+  transition: all 0.3s;
+}
+
+.round-count,
+.ties,
+.wins,
+.looses {
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.select {
+  margin-bottom: 30px;
+}
+
 .selection {
-  font-size: 120px;
+  font-size: 100px;
   color: #118ab2;
   transition: all 0.3s;
 }
@@ -46,38 +116,11 @@ body {
   color: #9a9a9a;
 }
 
-/* Info box */
-
-.info {
-  width: 350px;
-  margin: 0 25px;
-  text-align: center;
-}
-
-.final-result {
-  font-size: 20px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.round-result {
-  font-size: 20px;
-  font-weight: 600;
-  color: #06d6a0;
-  text-transform: lowercase;
-}
-
-.stats {
-  display: flex;
-  justify-content: space-around;
-  text-align: left;
-  margin-bottom: 20px;
-}
-
 .start {
-  padding: 15px 20px 10px;
-  background-color: #06d6a0;
-  color: #fff;
+  display: none;
+  padding: 12px 20px 10px;
+  background-color: #118ab2;
+  color: #eee;
   border: none;
   font-weight: 700;
   transition: all 0.3s;
@@ -85,27 +128,29 @@ body {
 }
 
 .start:hover {
-  background-color: #0bebaf;
+  background-color: #14a2d1;
   transition: all 0.3s;
 }
 
 /* Oponent box */
 
 .oponent {
-  width: 460px;
+  width: 350px;
   text-align: center;
 }
 
+.pc-choice,
 .npc-choice {
   font-size: 120px;
   color: #ffd166;
-  transition: all 1s;
 }
 
 /* ETC */
 
 .heading {
   text-align: center;
+  text-transform: uppercase;
+  font-family: 'Bangers', cursive;
 }
 
 .win {
@@ -118,6 +163,18 @@ body {
 
 .loose {
   color: #ef476f;
+}
+
+.win-bg {
+  background-color: #06d6a0;
+}
+
+.tie-bg {
+  background-color: #ffd166;
+}
+
+.loose-bg {
+  background-color: #ef476f;
 }
 
 .rotate-45 {
