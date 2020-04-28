@@ -3,17 +3,18 @@
     YELLOW: #ffd166
     GREEN: #06d6a0
     BLUE: #118ab2
-    DARK BLUE: #073b4c  */
+    DARK BLUE: #073b4c
+    ---
+    LIGHT GREY: #eee
+    GREY: #9a9a9a
+    WHITE: #fff  */
 
 body {
   background-color: #073b4c;
   color: #eee;
 }
 
-.heading {
-  text-align: center;
-  color: #eee;
-}
+/* Main */
 
 .main {
   display: flex;
@@ -22,16 +23,73 @@ body {
   margin-top: 100px;
 }
 
+/* Player box */
+
 .player {
   width: 460px;
   text-align: center;
 }
 
-.info{
+.selection {
+  font-size: 120px;
+  color: #118ab2;
+  transition: all 0.3s;
+}
+
+.selection:hover {
+  color: #14a2d1;
+  transition: all 0.3s;
+}
+
+.end-game {
+  pointer-events: none;
+  color: #9a9a9a;
+}
+
+/* Info box */
+
+.info {
   width: 350px;
   margin: 0 25px;
   text-align: center;
 }
+
+.final-result {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.round-result {
+  font-size: 20px;
+  font-weight: 600;
+  color: #06d6a0;
+  text-transform: lowercase;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.start {
+  padding: 15px 20px 10px;
+  background-color: #06d6a0;
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.start:hover {
+  background-color: #0bebaf;
+  transition: all 0.3s;
+}
+
+/* Oponent box */
 
 .oponent {
   width: 460px;
@@ -44,24 +102,10 @@ body {
   transition: all 1s;
 }
 
-.round-result {
-  font-size: 20px;
-  font-weight: 600;
-  color: #06d6a0;
-  text-transform: lowercase;
-}
+/* ETC */
 
-.start {
-  padding: 15px 20px 10px;
-  background-color: #06d6a0;
-  color: #fff;
-  border: none;
-  font-weight: 700;
-}
-
-.selection {
-  font-size: 120px;
-  color: #118ab2;
+.heading {
+  text-align: center;
 }
 
 .win {
@@ -74,21 +118,4 @@ body {
 
 .loose {
   color: #ef476f;
-}
-
-.results {
-  display: flex;
-  justify-content: space-around;
-  text-align: left;
-}
-
-.end-game {
-  pointer-events: none;
-  color: #9a9a9a;
-}
-
-.final-result {
-  font-size: 20px;
-  font-weight: 600;
-  text-transform: uppercase;
 }

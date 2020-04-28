@@ -1,5 +1,3 @@
-const newGame = document.querySelector('.start');
-
 const selections = document.querySelectorAll('.selection');
 const finalResult = document.querySelector('.final-result');
 const roundResult = document.querySelector('.round-result');
@@ -7,6 +5,7 @@ const roundCount = document.querySelector('.round-count');
 const tieScore = document.querySelector('.ties');
 const winScore = document.querySelector('.wins');
 const looseScore = document.querySelector('.looses');
+const newGame = document.querySelector('.start');
 
 let roundCounter = 0;
 let tieCounter = 0;
@@ -29,6 +28,7 @@ function checkWinner(pcSelection, npcSelection) {
       result = 'win';
       break;
   }
+
   return [result, pcSelection, npcSelection];
 }
 
@@ -56,14 +56,11 @@ function endGame(result) {
   selections.forEach((selection) => {
     selection.classList.add('end-game');
   });
+
   if (result) {
-    winScore.classList.add('win');
-    looseScore.classList.add('loose');
     finalResult.classList.add('win');
     finalResult.innerHTML = 'You won the game!';
   } else {
-    winScore.classList.add('loose');
-    looseScore.classList.add('win');
     finalResult.classList.add('loose');
     finalResult.innerHTML = 'You loose the game!';
   }
@@ -133,15 +130,12 @@ function reset() {
   npcIcon.classList.remove('fa-hand-rock', 'fa-hand-paper', 'fa-hand-peace');
   npcIcon.classList.add('fa-question-circle');
 
-  roundResult.classList.remove('win', 'tie', 'loose');
-  roundResult.innerHTML = 'Choose your move';
   finalResult.classList.remove('loose', 'win');
   finalResult.innerHTML = '';
-  winScore.classList.remove('win', 'loose');
-  looseScore.classList.remove('win', 'loose');
+  roundResult.classList.remove('win', 'tie', 'loose');
+  roundResult.innerHTML = 'Choose your move';
   roundCount.innerHTML = '0';
   winScore.innerHTML = '0';
-  tieScore.innerHTML = '0';
   looseScore.innerHTML = '0';
 }
 
