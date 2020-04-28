@@ -119,3 +119,17 @@ body {
 .loose {
   color: #ef476f;
 }
+
+.rotate-45 {
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.rotate-315 {
+  -moz-transform: rotate(315deg);
+  -o-transform: rotate(315deg);
+  -webkit-transform: rotate(315deg);
+  transform: rotate(315deg);
+}

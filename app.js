@@ -40,13 +40,13 @@ function oponent() {
 
   if (npcMove === 'rock') {
     npcIcon.classList.remove('fa-question-circle', 'fa-hand-paper', 'fa-hand-peace');
-    npcIcon.classList.add('fa-hand-rock');
+    npcIcon.classList.add('rotate-315', 'fa-hand-rock');
   } else if (npcMove === 'paper') {
     npcIcon.classList.remove('fa-question-circle', 'fa-hand-rock', 'fa-hand-peace');
-    npcIcon.classList.add('fa-hand-paper');
+    npcIcon.classList.add('rotate-315', 'fa-hand-paper');
   } else {
     npcIcon.classList.remove('fa-question-circle', 'fa-hand-rock', 'fa-hand-paper');
-    npcIcon.classList.add('fa-hand-peace');
+    npcIcon.classList.add('rotate-315', 'fa-hand-peace');
   }
 
   return npcMove;
@@ -127,7 +127,7 @@ function reset() {
     selection.classList.remove('end-game');
   });
 
-  npcIcon.classList.remove('fa-hand-rock', 'fa-hand-paper', 'fa-hand-peace');
+  npcIcon.classList.remove('rotate-315', 'fa-hand-rock', 'fa-hand-paper', 'fa-hand-peace');
   npcIcon.classList.add('fa-question-circle');
 
   finalResult.classList.remove('loose', 'win');
@@ -135,6 +135,7 @@ function reset() {
   roundResult.classList.remove('win', 'tie', 'loose');
   roundResult.innerHTML = 'Choose your move';
   roundCount.innerHTML = '0';
+  tieScore.innerHTML = '0';
   winScore.innerHTML = '0';
   looseScore.innerHTML = '0';
 }
