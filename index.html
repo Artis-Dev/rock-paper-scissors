@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock Paper Scissors</title>
   <link rel="stylesheet" href="css/modern-normalize.css">
   <link rel="stylesheet" href="css/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@500;700&display=swap"rel="stylesheet">
   <script src="https://kit.fontawesome.com/d6d31e90c1.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
 
   <header class="header">
@@ -20,7 +22,7 @@
   <main class="main">
     <div class="player">
       <h2 class="heading">Player</h2>
-      <i class="fas fa-question-circle pc-choice"></i>
+      <i class="fas fa-question-circle player-choice"></i>
     </div>
 
     <div class="results">
@@ -54,24 +56,29 @@
 
     <div class="oponent">
       <h2 class="heading">Oponent</h2>
-      <i class="fas fa-question-circle npc-choice"></i>
+      <i class="fas fa-question-circle oponent-choice"></i>
     </div>
 
     <div class="controls">
       <h2 class="heading">Choose your move</h2>
       <div class="select">
-        <a class="selection rock" href="#"><i class="fas fa-hand-rock fa-fw"></i></a>
-        <a class="selection paper" href="#"><i class="fas fa-hand-paper fa-fw"></i></a>
-        <a class="selection scissors" href="#"><i class="fas fa-hand-peace fa-fw"></i></a>
+        <button class="selection rock" href="#"><i class="fas fa-hand-rock fa-fw"></i></button>
+        <button class="selection paper" href="#"><i class="fas fa-hand-paper fa-fw"></i></button>
+        <button class="selection scissors" href="#"><i class="fas fa-hand-peace fa-fw"></i></button>
       </div>
       <button class="start">New Game</button>
     </div>
   </main>
 
   <footer class="footer">
-    <span class="footer-text">Built by <a class="footer-link" href="https://github.com/Artis-Dev/" target="_blank">ArtisDev</a> | <a class="footer-link" href="https://github.com/Artis-Dev/rock-paper-scissors" target="_blank">Source</a></span>
+    <span class="footer-text">
+      Built by
+      <a class="footer-link" href="https://github.com/Artis-Dev/"target="_blank">ArtisDev</a> |
+      <a class="footer-link" href="https://github.com/Artis-Dev/rock-paper-scissors"target="_blank">Source</a>
+    </span>
   </footer>
 
   <script src="app.js"></script>
 </body>
+
 </html>

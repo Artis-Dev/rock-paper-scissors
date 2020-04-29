@@ -10,10 +10,10 @@
     GREY: #9a9a9a  */
 
 body {
-  background-color: #073b4c;
-  color: #eee;
-  font-family: 'Roboto', sans-serif;
   padding: 40px 0;
+  background-color: #073b4c;
+  font-family: 'Roboto', sans-serif;
+  color: #eee;
 }
 
 h1 {
@@ -23,7 +23,6 @@ h1 {
 h2 {
   font-size: 40px;
 }
-
 
 h1, h2, p {
   margin: 0;
@@ -43,15 +42,14 @@ h1, h2, p {
     "player results oponent"
     ". controls .";
   justify-content: center;
-  align-items: baseline;
 }
 
 /* Player box */
 
 .player {
   grid-area: player;
-  text-align: center;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 /* Results box */
@@ -72,13 +70,12 @@ h1, h2, p {
 
 .round-result {
   display: none;
-  text-transform: lowercase;
+  padding: 7px 7px 5px;
   background-color: #ffd166;
-  padding: 7px;
   border-radius: 6px;
-  color: #073b4c;
   font-size: 14px;
   font-weight: 700;
+  color: #073b4c;
   text-transform: uppercase;
   transition: all 0.3s;
 }
@@ -92,12 +89,12 @@ h1, h2, p {
 .stat {
   width: 100px;
   margin-bottom: 20px;
-  background-color: #ffd166;
   padding: 7px;
+  background-color: #ffd166;
   border-radius: 6px;
-  color: #073b4c;
   font-size: 14px;
   font-weight: 700;
+  color: #073b4c;
   text-transform: uppercase;
   transition: all 0.3s;
 }
@@ -107,7 +104,6 @@ h1, h2, p {
 .wins,
 .looses {
   font-size: 34px;
-  font-weight: 700;
 }
 
 /* Oponent box */
@@ -118,8 +114,8 @@ h1, h2, p {
   margin-bottom: 20px;
 }
 
-.pc-choice,
-.npc-choice {
+.player-choice,
+.oponent-choice {
   font-size: 120px;
   color: #ffd166;
 }
@@ -136,8 +132,11 @@ h1, h2, p {
 }
 
 .selection {
+  background-color: transparent;
+  border: none;
   font-size: 100px;
   color: #118ab2;
+  cursor: pointer;
   transition: all 0.3s;
 }
 
@@ -147,21 +146,22 @@ h1, h2, p {
 }
 
 .end-game {
-  pointer-events: none;
   color: #9a9a9a;
+  pointer-events: none;
 }
 
 .start {
   display: none;
+  margin-bottom: 47px;
   padding: 11px 20px 10px;
   background-color: #118ab2;
-  color: #eee;
   border: none;
+  border-radius: 6px;
+  color: #eee;
   font-weight: 700;
-  transition: all 0.3s;
-  cursor: pointer;
-  margin-bottom: 47px;
   text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .start:hover {
@@ -176,9 +176,9 @@ h1, h2, p {
 }
 
 .footer-text {
+  padding: 7px;
   background-color: #ffd166;
   color: #073b4c;
-  padding: 7px;
   border-radius: 6px;
   color: #073b4c;
   font-size: 14px;
@@ -198,10 +198,10 @@ h1, h2, p {
 /* ETC */
 
 .heading {
+  margin-bottom: 20px;
+  font-family: 'Bangers', cursive;
   text-align: center;
   text-transform: uppercase;
-  font-family: 'Bangers', cursive;
-  margin-bottom: 20px;
 }
 
 .win {
@@ -218,10 +218,6 @@ h1, h2, p {
 
 .win-bg {
   background-color: #06d6a0;
-}
-
-.draw-bg {
-  background-color: #ffd166;
 }
 
 .loose-bg {
@@ -265,6 +261,8 @@ h1, h2, p {
   .stats-col {
     display: inline-flex;
   }
+
+  .stats-col:not(:last-child),
   .stat:not(:last-child) {
     margin-right: 20px;
   }
