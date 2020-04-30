@@ -4,21 +4,21 @@ const statBoxes = document.querySelectorAll('.stat');
 const roundCount = document.querySelector('.round-count');
 const drawCount = document.querySelector('.draws');
 const winCount = document.querySelector('.wins');
-const looseCount = document.querySelector('.looses');
+const defeatCount = document.querySelector('.defeats');
 const selections = document.querySelectorAll('.selection');
-const newGame = document.querySelector('.start');
+const newGame = document.querySelector('.new-game');
 
 let roundCounter = 0;
 let drawCounter = 0;
 let winCounter = 0;
-let looseCounter = 0;
+let defeatCounter = 0;
 
 function endGame(result) {
-  finalResult.innerHTML = result === true ? 'You won the game!' : 'You loose the game :(';
-  finalResult.classList.add(result === true ? 'win' : 'loose');
+  finalResult.innerHTML = result === true ? 'You won the game!' : 'You lose the game :(';
+  finalResult.classList.add(result === true ? 'win' : 'lose');
 
   statBoxes.forEach((box) => {
-    box.classList.add(result === true ? 'win-bg' : 'loose-bg');
+    box.classList.add(result === true ? 'win-bg' : 'lose-bg');
   });
 
   selections.forEach((selection) => {
@@ -27,45 +27,45 @@ function endGame(result) {
   });
 }
 
-function oponent() {
-  const oponentChoice = document.querySelector('.oponent-choice');
+function opponent() {
+  const opponentChoice = document.querySelector('.opponent-choice');
 
   const moves = ['rock', 'paper', 'scissors'];
-  const oponentMove = moves[Math.floor(Math.random() * moves.length)];
+  const opponentMove = moves[Math.floor(Math.random() * moves.length)];
 
-  oponentChoice.classList.remove('fa-question-circle', 'fa-hand-paper', 'fa-hand-peace', 'fa-hand-rock');
-  oponentChoice.classList.add('rotate-315', `fa-hand-${oponentMove === 'scissors' ? 'peace' : oponentMove}`);
+  opponentChoice.classList.remove('fa-question-circle', 'fa-hand-paper', 'fa-hand-peace', 'fa-hand-rock');
+  opponentChoice.classList.add('rotate-315', `fa-hand-${opponentMove === 'scissors' ? 'peace' : opponentMove}`);
 
-  return oponentMove;
+  return opponentMove;
 }
 
-function checkWinner(playerSelection, oponentSelection) {
+function checkWinner(playerSelection, opponentSelection) {
   let result;
 
   switch (true) {
-    case playerSelection === oponentSelection:
+    case playerSelection === opponentSelection:
       result = 'draw';
       break;
-    case playerSelection === 'rock' && oponentSelection === 'paper':
-    case playerSelection === 'paper' && oponentSelection === 'scissors':
-    case playerSelection === 'scissors' && oponentSelection === 'rock':
-      result = 'loose';
+    case playerSelection === 'rock' && opponentSelection === 'paper':
+    case playerSelection === 'paper' && opponentSelection === 'scissors':
+    case playerSelection === 'scissors' && opponentSelection === 'rock':
+      result = 'lose';
       break;
     default:
       result = 'win';
       break;
   }
 
-  return [result, playerSelection, oponentSelection];
+  return [result, playerSelection, opponentSelection];
 }
 
 function playRound(playerMove) {
   const playerChoice = document.querySelector('.player-choice');
-  const oponentChoice = document.querySelector('.oponent-choice');
+  const opponentChoice = document.querySelector('.opponent-choice');
 
   let roundInfo = [];
 
-  roundInfo = checkWinner(playerMove, oponent());
+  roundInfo = checkWinner(playerMove, opponent());
 
   playerChoice.classList.remove('fa-question-circle', 'fa-hand-paper', 'fa-hand-peace', 'fa-hand-rock');
   playerChoice.classList.add('rotate-45', `fa-hand-${playerMove === 'scissors' ? 'peace' : playerMove}`);
@@ -77,29 +77,29 @@ function playRound(playerMove) {
     winCounter += 1;
     roundResult.innerHTML = `${roundInfo[1]} beats ${roundInfo[2]}`;
     winCount.innerHTML = winCounter;
-    roundResult.classList.remove('loose-bg');
-    playerChoice.classList.remove('loose');
-    oponentChoice.classList.remove('win');
+    roundResult.classList.remove('lose-bg');
+    playerChoice.classList.remove('lose');
+    opponentChoice.classList.remove('win');
     roundResult.classList.add('win-bg');
     playerChoice.classList.add('win');
-    oponentChoice.classList.add('loose');
-  } else if (roundInfo[0] === 'loose') {
-    looseCounter += 1;
+    opponentChoice.classList.add('lose');
+  } else if (roundInfo[0] === 'lose') {
+    defeatCounter += 1;
     roundResult.innerHTML = `${roundInfo[2]} beats ${roundInfo[1]}`;
-    looseCount.innerHTML = looseCounter;
+    defeatCount.innerHTML = defeatCounter;
     roundResult.classList.remove('win-bg');
     playerChoice.classList.remove('win');
-    oponentChoice.classList.remove('loose');
-    roundResult.classList.add('loose-bg');
-    playerChoice.classList.add('loose');
-    oponentChoice.classList.add('win');
+    opponentChoice.classList.remove('lose');
+    roundResult.classList.add('lose-bg');
+    playerChoice.classList.add('lose');
+    opponentChoice.classList.add('win');
   } else if (roundInfo[0] === 'draw') {
     drawCounter += 1;
     roundResult.innerHTML = 'Draw';
     drawCount.innerHTML = drawCounter;
-    roundResult.classList.remove('win-bg', 'loose-bg');
-    playerChoice.classList.remove('win', 'loose');
-    oponentChoice.classList.remove('win', 'loose');
+    roundResult.classList.remove('win-bg', 'lose-bg');
+    playerChoice.classList.remove('win', 'lose');
+    opponentChoice.classList.remove('win', 'lose');
   }
 
   if (roundCounter > 0) {
@@ -109,7 +109,7 @@ function playRound(playerMove) {
 
   if (winCounter === 5) {
     endGame(true);
-  } else if (looseCounter === 5) {
+  } else if (defeatCounter === 5) {
     endGame(false);
   }
 }
@@ -130,15 +130,15 @@ function startGame() {
 
 function reset() {
   const playerChoice = document.querySelector('.player-choice');
-  const oponentChoice = document.querySelector('.oponent-choice');
+  const opponentChoice = document.querySelector('.opponent-choice');
 
   roundCounter = 0;
   winCounter = 0;
   drawCounter = 0;
-  looseCounter = 0;
+  defeatCounter = 0;
 
   statBoxes.forEach((box) => {
-    box.classList.remove('win-bg', 'loose-bg');
+    box.classList.remove('win-bg', 'lose-bg');
   });
 
   selections.forEach((selection) => {
@@ -146,20 +146,20 @@ function reset() {
     selection.removeAttribute('disabled');
   });
 
-  oponentChoice.classList.remove('rotate-315', 'fa-hand-rock', 'fa-hand-paper', 'fa-hand-peace');
-  oponentChoice.classList.remove('win', 'loose');
+  opponentChoice.classList.remove('rotate-315', 'fa-hand-rock', 'fa-hand-paper', 'fa-hand-peace');
+  opponentChoice.classList.remove('win', 'lose');
   playerChoice.classList.remove('rotate-45', 'fa-hand-rock', 'fa-hand-paper', 'fa-hand-peace');
-  playerChoice.classList.remove('win', 'loose');
-  finalResult.classList.remove('loose', 'win');
-  roundResult.classList.remove('win', 'draw', 'loose');
-  oponentChoice.classList.add('fa-question-circle');
+  playerChoice.classList.remove('win', 'lose');
+  finalResult.classList.remove('lose', 'win');
+  roundResult.classList.remove('win', 'draw', 'lose');
+  opponentChoice.classList.add('fa-question-circle');
   playerChoice.classList.add('fa-question-circle');
   finalResult.innerHTML = 'Good luck';
   roundResult.innerHTML = '';
   roundCount.innerHTML = '0';
   drawCount.innerHTML = '0';
   winCount.innerHTML = '0';
-  looseCount.innerHTML = '0';
+  defeatCount.innerHTML = '0';
   roundResult.style.display = 'none';
   newGame.style.display = 'none';
 }

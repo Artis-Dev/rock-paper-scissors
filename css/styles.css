@@ -39,7 +39,7 @@ h1, h2, p {
   grid-template-columns: 200px 540px 200px;
   grid-template-rows: auto auto;
   grid-template-areas:
-    "player results oponent"
+    "player results opponent"
     ". controls .";
   justify-content: center;
 }
@@ -102,20 +102,20 @@ h1, h2, p {
 .round-count,
 .draws,
 .wins,
-.looses {
+.defeats {
   font-size: 34px;
 }
 
-/* Oponent box */
+/* opponent box */
 
-.oponent {
-  grid-area: oponent;
+.opponent {
+  grid-area: opponent;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .player-choice,
-.oponent-choice {
+.opponent-choice {
   font-size: 120px;
   color: #ffd166;
 }
@@ -150,7 +150,7 @@ h1, h2, p {
   pointer-events: none;
 }
 
-.start {
+.new-game {
   display: none;
   margin-bottom: 47px;
   padding: 11px 20px 10px;
@@ -164,7 +164,7 @@ h1, h2, p {
   transition: all 0.3s;
 }
 
-.start:hover {
+.new-game:hover {
   background-color: #14a2d1;
   transition: all 0.3s;
 }
@@ -212,7 +212,7 @@ h1, h2, p {
   color: #ffd166;
 }
 
-.loose {
+.lose {
   color: #ef476f;
 }
 
@@ -220,7 +220,7 @@ h1, h2, p {
   background-color: #06d6a0;
 }
 
-.loose-bg {
+.lose-bg {
   background-color: #ef476f;
 }
 
@@ -245,7 +245,7 @@ h1, h2, p {
     grid-template-columns: 250px 250px ;
     grid-template-rows: auto auto auto;
     grid-template-areas:
-    "player oponent"
+    "player opponent"
     ". ."
     ". .";
   }
