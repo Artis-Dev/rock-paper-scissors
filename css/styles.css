@@ -140,6 +140,10 @@ h1, h2, p {
   transition: all 0.3s;
 }
 
+.selection:focus {
+  outline: none;
+}
+
 .selection:hover {
   color: #14a2d1;
   transition: all 0.3s;

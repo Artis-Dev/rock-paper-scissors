@@ -14,7 +14,7 @@ let winCounter = 0;
 let defeatCounter = 0;
 
 function endGame(result) {
-  finalResult.innerHTML = result === true ? 'You won the game!' : 'You lose the game :(';
+  finalResult.innerText = result === true ? 'You won the game!' : 'You lose the game :(';
   finalResult.classList.add(result === true ? 'win' : 'lose');
 
   statBoxes.forEach((box) => {
@@ -71,12 +71,12 @@ function playRound(playerMove) {
   playerChoice.classList.add('rotate-45', `fa-hand-${playerMove === 'scissors' ? 'peace' : playerMove}`);
 
   roundCounter += 1;
-  roundCount.innerHTML = roundCounter;
+  roundCount.innerText = roundCounter;
 
   if (roundInfo[0] === 'win') {
     winCounter += 1;
-    roundResult.innerHTML = `${roundInfo[1]} beats ${roundInfo[2]}`;
-    winCount.innerHTML = winCounter;
+    roundResult.innerText = `${roundInfo[1]} beats ${roundInfo[2]}`;
+    winCount.innerText = winCounter;
     roundResult.classList.remove('lose-bg');
     playerChoice.classList.remove('lose');
     opponentChoice.classList.remove('win');
@@ -85,8 +85,8 @@ function playRound(playerMove) {
     opponentChoice.classList.add('lose');
   } else if (roundInfo[0] === 'lose') {
     defeatCounter += 1;
-    roundResult.innerHTML = `${roundInfo[2]} beats ${roundInfo[1]}`;
-    defeatCount.innerHTML = defeatCounter;
+    roundResult.innerText = `${roundInfo[2]} beats ${roundInfo[1]}`;
+    defeatCount.innerText = defeatCounter;
     roundResult.classList.remove('win-bg');
     playerChoice.classList.remove('win');
     opponentChoice.classList.remove('lose');
@@ -95,8 +95,8 @@ function playRound(playerMove) {
     opponentChoice.classList.add('win');
   } else if (roundInfo[0] === 'draw') {
     drawCounter += 1;
-    roundResult.innerHTML = 'Draw';
-    drawCount.innerHTML = drawCounter;
+    roundResult.innerText = 'Draw';
+    drawCount.innerText = drawCounter;
     roundResult.classList.remove('win-bg', 'lose-bg');
     playerChoice.classList.remove('win', 'lose');
     opponentChoice.classList.remove('win', 'lose');
@@ -154,12 +154,12 @@ function reset() {
   roundResult.classList.remove('win', 'draw', 'lose');
   opponentChoice.classList.add('fa-question-circle');
   playerChoice.classList.add('fa-question-circle');
-  finalResult.innerHTML = 'Good luck';
-  roundResult.innerHTML = '';
-  roundCount.innerHTML = '0';
-  drawCount.innerHTML = '0';
-  winCount.innerHTML = '0';
-  defeatCount.innerHTML = '0';
+  finalResult.innerText = 'Good luck';
+  roundResult.innerText = '';
+  roundCount.innerText = '0';
+  drawCount.innerText = '0';
+  winCount.innerText = '0';
+  defeatCount.innerText = '0';
   roundResult.style.display = 'none';
   newGame.style.display = 'none';
 }
