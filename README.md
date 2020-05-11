@@ -32,7 +32,7 @@ From The Odin Project's [curriculum](https://www.theodinproject.com/courses/web-
 * Used CSS3 **grid** to create template and responsivness.
 * Used **Git** and **GitHub** for project management.
 * Used **Font Awesome** icons.
-* Tried to code as similar as possible and maintain **clean code**.
+* Tried to maintain **clean code**.
 * **Cross tested** on Firefox and Chromium based browsers.
 
 ## Summary
