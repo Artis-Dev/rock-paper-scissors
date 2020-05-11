@@ -19,7 +19,7 @@ From The Odin Project's [curriculum](https://www.theodinproject.com/courses/web-
 * Visual Studio Code
 * Linux terminal
 * Git and GitHub
-* ESLint
+* ESLint + Airbnb JavaScript Style Guide
 
 ### Third party code
 
@@ -32,7 +32,7 @@ From The Odin Project's [curriculum](https://www.theodinproject.com/courses/web-
 * Used CSS3 **grid** to create template and responsivness.
 * Used **Git** and **GitHub** for project management.
 * Used **Font Awesome** icons.
-* Tried to maintain **clean code**.
+* Tried to maintain **clean code** (0 ESLint warnings/errors).
 * **Cross tested** on Firefox and Chromium based browsers.
 
 ## Summary
