@@ -1,6 +1,6 @@
 # Rock Paper Scissors game
 
-Project: Create 'Rock Paper Scissors' game
+Project to create **Rock Paper Scissors** game using only HTML, CSS and Vanilla JS.
 
 From The Odin Project's [curriculum](https://www.theodinproject.com/courses/web-development-101/lessons/rock-paper-scissors).
 
@@ -25,6 +25,7 @@ From The Odin Project's [curriculum](https://www.theodinproject.com/courses/web-
 
 * [modern-normalize](https://github.com/sindresorhus/modern-normalize)
 * [Font Awesome](https://fontawesome.com/)
+* [Google Fonts](https://fonts.google.com/)
 
 ## Outcome
 
