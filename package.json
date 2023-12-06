@@ -3,12 +3,6 @@
   "version": "1.0.0",
   "description": "Project: Create 'Rock Paper Scissors' game",
   "main": "app.js",
-  "dependencies": {},
-  "devDependencies": {
-    "eslint": "^8.24.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Artis-Dev/rock-paper-scissors/issues"
   },
-  "homepage": "https://github.com/Artis-Dev/rock-paper-scissors#readme"
+  "homepage": "https://github.com/Artis-Dev/rock-paper-scissors#readme",
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.0"
+  }
 }
